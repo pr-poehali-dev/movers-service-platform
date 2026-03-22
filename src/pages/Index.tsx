@@ -309,50 +309,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* REVIEWS */}
-      <section id="reviews" className="py-24 bg-[#0D0D0D]">
-        <div ref={reviewsSection.ref} className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`mb-16 transition-all duration-700 ${reviewsSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div className="inline-flex items-center gap-2 text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-4">
-              <div className="w-8 h-px bg-[#FF6B00]" />
-              Клиенты о нас
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-end gap-4">
-              <h2 className="font-oswald text-4xl sm:text-6xl font-bold uppercase">
-                Отзывы <span className="text-[#FF6B00]">клиентов</span>
-              </h2>
-              <div className="flex items-center gap-2 pb-1 sm:pb-2">
-                <Stars count={5} />
-                <span className="text-white/50 text-sm">4.9 из 5 на основе 200+ отзывов</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {reviews.map((review, i) => (
-              <div
-                key={review.name}
-                className={`bg-[#161616] border border-white/5 rounded-sm p-6 transition-all duration-300 hover:border-white/10 ${reviewsSection.inView ? "animate-fade-in" : "opacity-0"}`}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-11 h-11 bg-[#FF6B00] rounded-sm flex items-center justify-center font-bold text-white font-oswald text-lg flex-shrink-0">
-                    {review.avatar}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-white">{review.name}</div>
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <Stars count={review.rating} />
-                      <span className="text-white/30 text-xs">{review.date}</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-white/60 text-sm leading-relaxed">"{review.text}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CONTACT */}
       <section id="contact" className="py-24 bg-[#111]">
