@@ -172,15 +172,15 @@ export default function Index() {
               Профессиональные грузчики
             </div>
 
-            <h1 className="font-oswald font-bold text-5xl sm:text-7xl uppercase" style={{ lineHeight: "0.95" }}>
-              Переедем
+            <h1 className="font-oswald font-bold text-4xl sm:text-6xl uppercase" style={{ lineHeight: "0.95" }}>
+              Услуги грузчиков
               <br />
-              <span className="text-[#FF6B00]">быстро</span>
+              и <span className="text-[#FF6B00]">разнорабочих</span>
               <br />
-              и без
+              по г.Артемовский
               <br />
               <span className="relative">
-                повреждений
+                и Свердловской области
                 <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 400 6" fill="none">
                   <path d="M0 3 Q100 0 200 3 Q300 6 400 3" stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
                 </svg>
