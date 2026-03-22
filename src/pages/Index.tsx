@@ -372,7 +372,7 @@ export default function Index() {
 
               <div className="space-y-5">
                 {[
-                  { icon: "Phone", label: "Телефон", value: "+7 (900) 000-00-00" },
+                  { icon: "Phone", label: "Телефон", value: "+7 (963) 44-55-826" },
                   { icon: "MapPin", label: "Работаем", value: "По всему городу" },
                   { icon: "Clock", label: "Режим работы", value: "Ежедневно 7:00 — 23:00" },
                 ].map(({ icon, label, value }) => (
