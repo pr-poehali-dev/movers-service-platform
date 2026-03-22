@@ -73,14 +73,26 @@ export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", service: "", comment: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const heroSection = useInView(0.1);
   const servicesSection = useInView(0.1);
   const reviewsSection = useInView(0.1);
   const contactSection = useInView(0.1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
+    try {
+      await fetch("https://functions.poehali.dev/c6273952-1177-468d-8fd2-510f28e8265b", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error(err);
+    }
+    setSending(false);
     setSubmitted(true);
   };
 
@@ -401,11 +413,12 @@ export default function Index() {
 
                   <button
                     type="submit"
-                    className="w-full group flex items-center justify-center gap-3 bg-[#FF6B00] hover:bg-[#FF8C33] text-white py-4 rounded-sm font-bold text-sm uppercase tracking-widest transition-all duration-200 hover:scale-[1.02] mt-2"
+                    disabled={sending}
+                    className="w-full group flex items-center justify-center gap-3 bg-[#FF6B00] hover:bg-[#FF8C33] disabled:opacity-60 text-white py-4 rounded-sm font-bold text-sm uppercase tracking-widest transition-all duration-200 hover:scale-[1.02] mt-2"
                   >
-                    <Icon name="Send" size={16} />
-                    Отправить заявку
-                    <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />
+                    <Icon name={sending ? "Loader" : "Send"} size={16} className={sending ? "animate-spin" : ""} />
+                    {sending ? "Отправляем..." : "Отправить заявку"}
+                    {!sending && <Icon name="ArrowRight" size={14} className="group-hover:translate-x-1 transition-transform" />}
                   </button>
                   <p className="text-white/25 text-xs text-center">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
                 </form>
