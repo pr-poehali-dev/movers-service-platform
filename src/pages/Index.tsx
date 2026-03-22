@@ -133,7 +133,7 @@ export default function Index() {
             <div className="w-8 h-8 bg-[#FF6B00] rounded-sm flex items-center justify-center">
               <Icon name="Zap" size={16} className="text-white" />
             </div>
-            <span className="font-oswald font-bold text-xl tracking-wide uppercase">МускулФорс</span>
+            <span className="font-oswald font-bold text-xl tracking-wide uppercase">Помощник</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -503,9 +503,9 @@ export default function Index() {
             <div className="w-6 h-6 bg-[#FF6B00] rounded-sm flex items-center justify-center">
               <Icon name="Zap" size={12} className="text-white" />
             </div>
-            <span className="font-oswald font-bold text-base uppercase tracking-wide">МускулФорс</span>
+            <span className="font-oswald font-bold text-base uppercase tracking-wide">Помощник</span>
           </div>
-          <p className="text-white/25 text-sm">© 2026 МускулФорс. Все права защищены.</p>
+          <p className="text-white/25 text-sm">© 2026 Помощник. Все права защищены.</p>
           <div className="flex gap-3">
             {["Phone", "MessageCircle", "Instagram"].map((icon) => (
               <button key={icon} className="w-8 h-8 bg-white/5 hover:bg-[#FF6B00]/20 border border-white/5 hover:border-[#FF6B00]/30 rounded-sm flex items-center justify-center transition-all">
