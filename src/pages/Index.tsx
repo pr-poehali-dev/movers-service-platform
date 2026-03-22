@@ -230,7 +230,6 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { icon: "Clock", text: "Приедем за 2 часа" },
-              { icon: "Shield", text: "Страхуем груз" },
               { icon: "ThumbsUp", text: "Опытная команда" },
               { icon: "CreditCard", text: "Честная цена" },
             ].map(({ icon, text }) => (
