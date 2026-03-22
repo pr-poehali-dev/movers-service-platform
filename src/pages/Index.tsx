@@ -207,7 +207,7 @@ export default function Index() {
             </div>
 
             <div className="flex flex-wrap gap-8 mt-12 pt-12 border-t border-white/10">
-              {[["500+", "Переездов"], ["8 лет", "Работаем"], ["30 мин", "Ответим"], ["24/7", "Доступны"]].map(([num, label]) => (
+              {[["30 мин", "Ответим"], ["24/7", "Доступны"]].map(([num, label]) => (
                 <div key={label}>
                   <div className="font-oswald text-3xl font-bold text-[#FF6B00]">{num}</div>
                   <div className="text-white/50 text-sm mt-0.5 uppercase tracking-wide">{label}</div>
