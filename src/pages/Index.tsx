@@ -186,7 +186,7 @@ export default function Index() {
             </h1>
 
             <p className="text-white/60 text-lg mt-8 mb-10 max-w-md leading-relaxed">
-              Команда из 2–6 человек приедет в течение 2 часов. Работаем без перекуров и задержек — платите только за результат.
+              Команда из 2–4 человек приедет в течение 2 часов. Работаем без перекуров и задержек
             </p>
 
             <div className="flex flex-wrap gap-4">
