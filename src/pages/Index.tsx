@@ -177,10 +177,8 @@ export default function Index() {
               <br />
               и <span className="text-[#FF6B00]">разнорабочих</span>
               <br />
-              по г.Артемовский
-              <br />
               <span className="relative">
-                и Свердловской области
+                по г.Артемовский
                 <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 400 6" fill="none">
                   <path d="M0 3 Q100 0 200 3 Q300 6 400 3" stroke="#FF6B00" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
                 </svg>
