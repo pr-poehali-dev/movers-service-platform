@@ -316,6 +316,43 @@ export default function Index() {
       </section>
 
 
+      {/* CONTACTS */}
+      <section id="contact" className="py-24 bg-[#111]">
+        <div ref={contactSection.ref} className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className={`transition-all duration-700 ${contactSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className="inline-flex items-center gap-2 text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-4">
+              <div className="w-8 h-px bg-[#FF6B00]" />
+              Контакты
+            </div>
+            <h2 className="font-oswald text-4xl sm:text-5xl font-bold uppercase mb-12">
+              Свяжитесь <span className="text-[#FF6B00]">с нами</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {[
+                { icon: "Phone", label: "Телефон", value: "+7 (963) 44-55-826", href: "tel:+79634455826" },
+                { icon: "MapPin", label: "Работаем", value: "По всему городу", href: null },
+                { icon: "Clock", label: "Режим работы", value: "Ежедневно 7:00 — 23:00", href: null },
+              ].map(({ icon, label, value, href }) => (
+                <div key={label} className="bg-[#161616] border border-white/5 rounded-sm p-6 flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#FF6B00]/10 rounded-sm flex items-center justify-center flex-shrink-0">
+                    <Icon name={icon} size={20} className="text-[#FF6B00]" />
+                  </div>
+                  <div>
+                    <div className="text-white/40 text-xs uppercase tracking-wide mb-1">{label}</div>
+                    {href ? (
+                      <a href={href} className="text-white font-semibold hover:text-[#FF6B00] transition-colors">{value}</a>
+                    ) : (
+                      <div className="text-white font-semibold">{value}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FOOTER */}
       <footer className="bg-[#0D0D0D] border-t border-white/5 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
