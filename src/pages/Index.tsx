@@ -333,10 +333,10 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 {
-                  title: "Старший грузчик / Бригадир",
-                  type: "Полная занятость",
-                  pay: "от 3 500 ₽/день",
-                  perks: ["Опыт от 1 года", "Надбавки за объём", "Карьерный рост"],
+                  title: "Водитель с личной Газелью или грузовиком",
+                  type: "График обсуждается",
+                  pay: "Сдельная з/п",
+                  perks: ["Личный транспорт", "Сдельная оплата", "График обсуждается"],
                 },
               ].map((v) => (
                 <div key={v.title} className="bg-[#111] border border-white/5 rounded-sm p-8 hover:border-[#FF6B00]/30 transition-colors duration-300">
