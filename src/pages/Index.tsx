@@ -333,12 +333,6 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 {
-                  title: "Грузчик",
-                  type: "Полная занятость",
-                  pay: "от 2 500 ₽/день",
-                  perks: ["Без опыта", "Ежедневные выплаты", "Гибкий график"],
-                },
-                {
                   title: "Старший грузчик / Бригадир",
                   type: "Полная занятость",
                   pay: "от 3 500 ₽/день",
