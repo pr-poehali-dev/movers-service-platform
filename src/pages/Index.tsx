@@ -78,6 +78,7 @@ export default function Index() {
   const heroSection = useInView(0.1);
   const servicesSection = useInView(0.1);
   const reviewsSection = useInView(0.1);
+  const vacanciesSection = useInView(0.1);
   const contactSection = useInView(0.1);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -115,7 +116,7 @@ export default function Index() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["contact", "Контакты"]].map(([id, label]) => (
+            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
@@ -144,7 +145,7 @@ export default function Index() {
 
         {menuOpen && (
           <div className="md:hidden bg-[#111] border-t border-white/5 py-4 px-4 flex flex-col gap-4">
-            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["contact", "Контакты"]].map(([id, label]) => (
+            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
               <button key={id} onClick={() => scrollTo(id)} className="text-left text-white/80 hover:text-[#FF6B00] font-medium tracking-wide uppercase text-sm py-1">
                 {label}
               </button>
@@ -315,6 +316,74 @@ export default function Index() {
         </div>
       </section>
 
+
+      {/* VACANCIES */}
+      <section id="vacancies" className="py-24 bg-[#0D0D0D]">
+        <div ref={vacanciesSection.ref} className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className={`transition-all duration-700 ${vacanciesSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <div className="inline-flex items-center gap-2 text-[#FF6B00] text-xs font-semibold uppercase tracking-widest mb-4">
+              <div className="w-8 h-px bg-[#FF6B00]" />
+              Вакансии
+            </div>
+            <h2 className="font-oswald text-4xl sm:text-5xl font-bold uppercase mb-4">
+              Работа в <span className="text-[#FF6B00]">команде</span>
+            </h2>
+            <p className="text-white/50 text-lg mb-12 max-w-xl">Ищем ответственных и физически крепких ребят. Официальное оформление, стабильные выплаты, дружный коллектив.</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              {[
+                {
+                  title: "Грузчик",
+                  type: "Полная занятость",
+                  pay: "от 2 500 ₽/день",
+                  perks: ["Без опыта", "Ежедневные выплаты", "Гибкий график"],
+                },
+                {
+                  title: "Старший грузчик / Бригадир",
+                  type: "Полная занятость",
+                  pay: "от 3 500 ₽/день",
+                  perks: ["Опыт от 1 года", "Надбавки за объём", "Карьерный рост"],
+                },
+              ].map((v) => (
+                <div key={v.title} className="bg-[#111] border border-white/5 rounded-sm p-8 hover:border-[#FF6B00]/30 transition-colors duration-300">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="font-oswald text-2xl font-bold uppercase tracking-wide mb-1">{v.title}</h3>
+                      <span className="text-white/40 text-sm">{v.type}</span>
+                    </div>
+                    <span className="text-[#FF6B00] font-bold text-lg whitespace-nowrap">{v.pay}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {v.perks.map((p) => (
+                      <span key={p} className="bg-white/5 text-white/60 text-xs px-3 py-1 rounded-sm font-medium uppercase tracking-wide">{p}</span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => scrollTo("contact")}
+                    className="flex items-center gap-2 text-[#FF6B00] hover:text-white text-sm font-semibold uppercase tracking-wide transition-colors"
+                  >
+                    Откликнуться <Icon name="ArrowRight" size={14} />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-[#111] border border-[#FF6B00]/20 rounded-sm p-6 flex flex-col sm:flex-row items-center gap-4">
+              <Icon name="Users" size={32} className="text-[#FF6B00] shrink-0" />
+              <div>
+                <p className="font-semibold text-white mb-1">Не нашли подходящую вакансию?</p>
+                <p className="text-white/50 text-sm">Оставьте заявку — свяжемся и расскажем об открытых позициях.</p>
+              </div>
+              <button
+                onClick={() => scrollTo("contact")}
+                className="ml-auto shrink-0 bg-[#FF6B00] hover:bg-[#FF8C33] text-white px-6 py-3 rounded-sm font-bold text-sm uppercase tracking-wide transition-all hover:scale-105 whitespace-nowrap"
+              >
+                Оставить заявку
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CONTACTS */}
       <section id="contact" className="py-24 bg-[#111]">
