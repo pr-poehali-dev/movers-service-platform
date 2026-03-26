@@ -328,7 +328,6 @@ export default function Index() {
             <h2 className="font-oswald text-4xl sm:text-5xl font-bold uppercase mb-4">
               Работа в <span className="text-[#FF6B00]">команде</span>
             </h2>
-            <p className="text-white/50 text-lg mb-12 max-w-xl">Ищем ответственных и физически крепких ребят. Официальное оформление, стабильные выплаты, дружный коллектив.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
