@@ -362,19 +362,6 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="bg-[#111] border border-[#FF6B00]/20 rounded-sm p-6 flex flex-col sm:flex-row items-center gap-4">
-              <Icon name="Users" size={32} className="text-[#FF6B00] shrink-0" />
-              <div>
-                <p className="font-semibold text-white mb-1">Не нашли подходящую вакансию?</p>
-                <p className="text-white/50 text-sm">Оставьте заявку — свяжемся и расскажем об открытых позициях.</p>
-              </div>
-              <button
-                onClick={() => scrollTo("contact")}
-                className="ml-auto shrink-0 bg-[#FF6B00] hover:bg-[#FF8C33] text-white px-6 py-3 rounded-sm font-bold text-sm uppercase tracking-wide transition-all hover:scale-105 whitespace-nowrap"
-              >
-                Оставить заявку
-              </button>
-            </div>
           </div>
         </div>
       </section>
