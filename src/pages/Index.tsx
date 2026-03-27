@@ -199,7 +199,7 @@ export default function Index() {
             </h1>
 
             <p className="text-white/60 text-lg mt-8 mb-10 max-w-md leading-relaxed">
-              Команда из 2–4 человек приедет в течение 2 часов. Работаем без перекуров и задержек
+              Команда из 2–4 человек. Работаем без перекуров и задержек
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -242,7 +242,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: "Clock", text: "Приедем за 2 часа" },
+              { icon: "Clock", text: "Работаем ежедневно" },
               { icon: "ThumbsUp", text: "Опытная команда" },
               { icon: "CreditCard", text: "Честная цена" },
             ].map(({ icon, text }) => (
