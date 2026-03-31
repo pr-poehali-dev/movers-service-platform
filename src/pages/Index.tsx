@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/b7854c58-7224-4692-ae4f-c943ba6fd785/files/a7b2cf6e-ea87-4df9-8750-c506d3c889e5.jpg";
@@ -76,6 +77,7 @@ function Stars({ count }: { count: number }) {
 }
 
 export default function Index() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", phone: "", service: "", comment: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -122,7 +124,7 @@ export default function Index() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
+            {[["hero", "Главная"], ["services", "Услуги"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
@@ -131,6 +133,12 @@ export default function Index() {
                 {label}
               </button>
             ))}
+            <button
+              onClick={() => navigate("/reviews")}
+              className="text-sm text-white/60 hover:text-[#FF6B00] transition-colors duration-200 font-medium tracking-wide uppercase"
+            >
+              Отзывы
+            </button>
           </div>
 
           <button
@@ -151,11 +159,14 @@ export default function Index() {
 
         {menuOpen && (
           <div className="md:hidden bg-[#111] border-t border-white/5 py-4 px-4 flex flex-col gap-4">
-            {[["hero", "Главная"], ["services", "Услуги"], ["reviews", "Отзывы"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
+            {[["hero", "Главная"], ["services", "Услуги"], ["vacancies", "Вакансии"], ["contact", "Контакты"]].map(([id, label]) => (
               <button key={id} onClick={() => scrollTo(id)} className="text-left text-white/80 hover:text-[#FF6B00] font-medium tracking-wide uppercase text-sm py-1">
                 {label}
               </button>
             ))}
+            <button onClick={() => { navigate("/reviews"); setMenuOpen(false); }} className="text-left text-white/80 hover:text-[#FF6B00] font-medium tracking-wide uppercase text-sm py-1">
+              Отзывы
+            </button>
             <button onClick={() => scrollTo("contact")} className="bg-[#FF6B00] text-white py-3 rounded-sm font-semibold text-sm uppercase tracking-wide">
               Вызвать грузчиков
             </button>
