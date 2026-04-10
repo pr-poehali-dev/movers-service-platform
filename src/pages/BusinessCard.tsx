@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
+import { QRCodeSVG } from "qrcode.react";
 
 const CARD_W = 900;
 const CARD_H = 500;
@@ -99,6 +100,8 @@ const FrontSide = () => (
   </div>
 );
 
+const SITE_URL = "https://movers-service-platform.poehali.dev/";
+
 const BackSide = () => (
   <div
     className="relative overflow-hidden flex flex-col justify-between"
@@ -111,33 +114,77 @@ const BackSide = () => (
       fontFamily: "'Golos Text', sans-serif",
     }}
   >
-    {/* Top title */}
-    <div>
+    {/* Main content: services + QR */}
+    <div style={{ display: "flex", gap: 48, alignItems: "flex-start" }}>
+      {/* Services */}
+      <div style={{ flex: 1 }}>
+        <div
+          style={{
+            fontFamily: "'Oswald', sans-serif",
+            fontSize: 28,
+            fontWeight: 700,
+            color: "#0D0D0D",
+            letterSpacing: 1,
+            textTransform: "uppercase",
+            marginBottom: 24,
+          }}
+        >
+          Наши услуги
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          {[
+            { label: "Погрузка / разгрузка", price: "от 500 ₽" },
+            { label: "Грузоперевозки на Ларгусе", price: "от 600 ₽" },
+            { label: "Разнорабочие", price: "по договору" },
+            { label: "Вывоз мусора", price: "по договору" },
+          ].map((s) => (
+            <div
+              key={s.label}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                gap: 12,
+                borderBottom: "1px solid rgba(0,0,0,0.15)",
+                paddingBottom: 10,
+              }}
+            >
+              <span style={{ color: "#0D0D0D", fontSize: 16, fontWeight: 500 }}>{s.label}</span>
+              <span style={{ color: "rgba(0,0,0,0.6)", fontSize: 14, whiteSpace: "nowrap" }}>{s.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* QR code block */}
       <div
         style={{
-          fontFamily: "'Oswald', sans-serif",
-          fontSize: 28,
-          fontWeight: 700,
-          color: "#0D0D0D",
-          letterSpacing: 1,
-          textTransform: "uppercase",
-          marginBottom: 28,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 10,
+          flexShrink: 0,
         }}
       >
-        Наши услуги
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px 48px" }}>
-        {[
-          { label: "Погрузка / разгрузка", price: "от 500 ₽" },
-          { label: "Грузоперевозки на Ларгусе", price: "от 600 ₽" },
-          { label: "Разнорабочие", price: "по договору" },
-          { label: "Вывоз мусора", price: "по договору" },
-        ].map((s) => (
-          <div key={s.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, borderBottom: "1px solid rgba(0,0,0,0.15)", paddingBottom: 10 }}>
-            <span style={{ color: "#0D0D0D", fontSize: 17, fontWeight: 500 }}>{s.label}</span>
-            <span style={{ color: "rgba(0,0,0,0.6)", fontSize: 15, whiteSpace: "nowrap" }}>{s.price}</span>
-          </div>
-        ))}
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: 16,
+            padding: 12,
+            boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
+          }}
+        >
+          <QRCodeSVG
+            value={SITE_URL}
+            size={160}
+            bgColor="#ffffff"
+            fgColor="#0D0D0D"
+            level="M"
+          />
+        </div>
+        <div style={{ color: "#0D0D0D", fontSize: 13, fontWeight: 600, opacity: 0.7, textAlign: "center" }}>
+          Наш сайт
+        </div>
       </div>
     </div>
 
@@ -146,7 +193,7 @@ const BackSide = () => (
       <div
         style={{
           fontFamily: "'Oswald', sans-serif",
-          fontSize: 36,
+          fontSize: 32,
           fontWeight: 700,
           color: "#0D0D0D",
           opacity: 0.15,
