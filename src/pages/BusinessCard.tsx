@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 import { QRCodeSVG } from "qrcode.react";
+import html2canvas from "html2canvas";
 
 const CARD_W = 900;
 const CARD_H = 500;
@@ -225,10 +226,34 @@ const BackSide = () => (
 
 const BusinessCard = () => {
   const [side, setSide] = useState<"front" | "back">("front");
+  const [downloading, setDownloading] = useState(false);
   const printRef = useRef<HTMLDivElement>(null);
+  const frontRef = useRef<HTMLDivElement>(null);
+  const backRef = useRef<HTMLDivElement>(null);
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const downloadSide = async (ref: React.RefObject<HTMLDivElement>, filename: string) => {
+    if (!ref.current) return;
+    const canvas = await html2canvas(ref.current, {
+      scale: 3,
+      useCORS: true,
+      backgroundColor: null,
+    });
+    const link = document.createElement("a");
+    link.download = filename;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  };
+
+  const handleDownloadAll = async () => {
+    setDownloading(true);
+    await downloadSide(frontRef, "vizitka-licevaya.png");
+    await new Promise((r) => setTimeout(r, 300));
+    await downloadSide(backRef, "vizitka-oborotnaya.png");
+    setDownloading(false);
   };
 
   return (
@@ -288,7 +313,7 @@ const BusinessCard = () => {
         {side === "front" ? <FrontSide /> : <BackSide />}
       </div>
 
-      {/* Both sides for print */}
+      {/* Both sides preview */}
       <div className="no-print" style={{ display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center", marginTop: 16 }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 13, marginBottom: 8 }}>Лицевая</div>
@@ -304,10 +329,17 @@ const BusinessCard = () => {
         </div>
       </div>
 
+      {/* Hidden full-res refs for download */}
+      <div style={{ position: "fixed", left: -9999, top: -9999, pointerEvents: "none" }}>
+        <div ref={frontRef}><FrontSide /></div>
+        <div ref={backRef}><BackSide /></div>
+      </div>
+
       {/* Actions */}
-      <div className="no-print flex gap-4 mt-4">
+      <div className="no-print flex gap-4 mt-4 flex-wrap justify-center">
         <button
-          onClick={handlePrint}
+          onClick={handleDownloadAll}
+          disabled={downloading}
           style={{
             display: "flex",
             alignItems: "center",
@@ -316,6 +348,26 @@ const BusinessCard = () => {
             background: "#FF6B00",
             color: "#fff",
             border: "none",
+            borderRadius: 10,
+            fontSize: 16,
+            fontWeight: 600,
+            cursor: downloading ? "wait" : "pointer",
+            opacity: downloading ? 0.7 : 1,
+          }}
+        >
+          <Icon name={downloading ? "Loader" : "Download"} size={18} />
+          {downloading ? "Скачивание..." : "Скачать PNG (обе стороны)"}
+        </button>
+        <button
+          onClick={handlePrint}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "12px 32px",
+            background: "transparent",
+            color: "rgba(255,255,255,0.6)",
+            border: "1px solid rgba(255,255,255,0.15)",
             borderRadius: 10,
             fontSize: 16,
             fontWeight: 600,
@@ -333,8 +385,8 @@ const BusinessCard = () => {
             gap: 8,
             padding: "12px 32px",
             background: "transparent",
-            color: "rgba(255,255,255,0.5)",
-            border: "1px solid rgba(255,255,255,0.15)",
+            color: "rgba(255,255,255,0.3)",
+            border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: 10,
             fontSize: 16,
             textDecoration: "none",
@@ -346,7 +398,7 @@ const BusinessCard = () => {
       </div>
 
       <p className="no-print" style={{ color: "rgba(255,255,255,0.2)", fontSize: 13, marginTop: 8, textAlign: "center" }}>
-        Для печати используйте альбомную ориентацию · Масштаб 100%
+        PNG в высоком качестве (3×) · для передачи в типографию
       </p>
     </div>
   );
