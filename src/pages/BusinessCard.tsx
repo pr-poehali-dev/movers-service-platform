@@ -47,13 +47,13 @@ const FrontSide = () => (
         >
           <QRCodeSVG
             value={QR_URL}
-            size={120}
+            size={160}
             bgColor="#ffffff"
             fgColor="#0D0D0D"
             level="M"
           />
         </div>
-        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, letterSpacing: 0.5 }}>
+        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 14, letterSpacing: 0.5 }}>
           gruz66.ru
         </div>
       </div>
@@ -63,7 +63,7 @@ const FrontSide = () => (
         <div
           style={{
             fontFamily: "'Oswald', sans-serif",
-            fontSize: 52,
+            fontSize: 68,
             fontWeight: 700,
             color: "#FF6B00",
             letterSpacing: 2,
@@ -72,10 +72,10 @@ const FrontSide = () => (
         >
           ПОМОЩНИК
         </div>
-        <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 18, marginTop: 10, letterSpacing: 0.5 }}>
+        <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 22, marginTop: 12, letterSpacing: 0.5 }}>
           Услуги грузчиков и разнорабочих
         </div>
-        <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 15, marginTop: 4 }}>
+        <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 17, marginTop: 5 }}>
           г. Артёмовский
         </div>
       </div>
@@ -84,18 +84,18 @@ const FrontSide = () => (
     {/* Bottom: телефон + режим работы */}
     <div style={{ paddingLeft: 8, display: "flex", gap: 56, alignItems: "flex-end" }}>
       <div>
-        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
+        <div style={{ color: "#FF6B00", fontSize: 14, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
           Телефон
         </div>
-        <div style={{ color: "#fff", fontSize: 32, fontWeight: 700, letterSpacing: 1 }}>
+        <div style={{ color: "#fff", fontSize: 38, fontWeight: 700, letterSpacing: 1 }}>
           {PHONE}
         </div>
       </div>
       <div>
-        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
+        <div style={{ color: "#FF6B00", fontSize: 14, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
           Режим работы
         </div>
-        <div style={{ color: "#fff", fontSize: 20, fontWeight: 500 }}>
+        <div style={{ color: "#fff", fontSize: 22, fontWeight: 500 }}>
           Ежедневно 7:00 — 23:00
         </div>
       </div>
