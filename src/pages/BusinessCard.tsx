@@ -5,6 +5,8 @@ import html2canvas from "html2canvas";
 
 const CARD_W = 900;
 const CARD_H = 500;
+const QR_URL = "https://gruz66.ru";
+const PHONE = "+7 (963) 44-55-826";
 
 const FrontSide = () => (
   <div
@@ -31,77 +33,69 @@ const FrontSide = () => (
       }}
     />
 
-    {/* Top: logo + tagline */}
+    {/* Top: QR + название */}
+    <div style={{ paddingLeft: 8, display: "flex", gap: 40, alignItems: "flex-start" }}>
+      {/* QR код */}
+      <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: 14,
+            padding: 10,
+            boxShadow: "0 4px 24px rgba(255,107,0,0.2)",
+          }}
+        >
+          <QRCodeSVG
+            value={QR_URL}
+            size={120}
+            bgColor="#ffffff"
+            fgColor="#0D0D0D"
+            level="M"
+          />
+        </div>
+        <div style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, letterSpacing: 0.5 }}>
+          gruz66.ru
+        </div>
+      </div>
+
+      {/* Название и описание */}
+      <div style={{ paddingTop: 8 }}>
+        <div
+          style={{
+            fontFamily: "'Oswald', sans-serif",
+            fontSize: 52,
+            fontWeight: 700,
+            color: "#FF6B00",
+            letterSpacing: 2,
+            lineHeight: 1,
+          }}
+        >
+          ПОМОЩНИК
+        </div>
+        <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 18, marginTop: 10, letterSpacing: 0.5 }}>
+          Услуги грузчиков и разнорабочих
+        </div>
+        <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 15, marginTop: 4 }}>
+          г. Артёмовский
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom: телефон */}
     <div style={{ paddingLeft: 8 }}>
-      <div
-        style={{
-          fontFamily: "'Oswald', sans-serif",
-          fontSize: 52,
-          fontWeight: 700,
-          color: "#FF6B00",
-          letterSpacing: 2,
-          lineHeight: 1,
-        }}
-      >
-        ПОМОЩНИК
+      <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
+        Телефон
       </div>
-      <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 18, marginTop: 10, letterSpacing: 0.5 }}>
-        Услуги грузчиков и разнорабочих
-      </div>
-      <div style={{ color: "rgba(255,255,255,0.35)", fontSize: 15, marginTop: 4 }}>
-        г. Артёмовский
+      <div style={{ color: "#fff", fontSize: 32, fontWeight: 700, letterSpacing: 1 }}>
+        {PHONE}
       </div>
     </div>
 
-    {/* Bottom: contacts */}
-    <div style={{ paddingLeft: 8, display: "flex", gap: 56, alignItems: "flex-end" }}>
-      <div>
-        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
-          Телефон
-        </div>
-        <div style={{ color: "#fff", fontSize: 28, fontWeight: 600, letterSpacing: 1 }}>
-          +7 (963) 44-55-826
-        </div>
-      </div>
-      <div>
-        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
-          Режим работы
-        </div>
-        <div style={{ color: "#fff", fontSize: 20, fontWeight: 500 }}>
-          Ежедневно 7:00 — 23:00
-        </div>
-      </div>
-    </div>
-
-    {/* Decorative circle */}
-    <div
-      style={{
-        position: "absolute",
-        right: -80,
-        top: -80,
-        width: 320,
-        height: 320,
-        borderRadius: "50%",
-        border: "2px solid rgba(255,107,0,0.15)",
-        pointerEvents: "none",
-      }}
-    />
-    <div
-      style={{
-        position: "absolute",
-        right: -20,
-        top: -20,
-        width: 180,
-        height: 180,
-        borderRadius: "50%",
-        border: "2px solid rgba(255,107,0,0.1)",
-        pointerEvents: "none",
-      }}
-    />
+    {/* Decorative circles */}
+    <div style={{ position: "absolute", right: -80, top: -80, width: 320, height: 320, borderRadius: "50%", border: "2px solid rgba(255,107,0,0.12)", pointerEvents: "none" }} />
+    <div style={{ position: "absolute", right: -20, top: -20, width: 180, height: 180, borderRadius: "50%", border: "2px solid rgba(255,107,0,0.08)", pointerEvents: "none" }} />
   </div>
 );
-
-const SITE_URL = "https://movers-service-platform.poehali.dev/";
 
 const BackSide = () => (
   <div
@@ -115,86 +109,47 @@ const BackSide = () => (
       fontFamily: "'Golos Text', sans-serif",
     }}
   >
-    {/* Main content: services + QR */}
-    <div style={{ display: "flex", gap: 48, alignItems: "flex-start" }}>
-      {/* Services */}
-      <div style={{ flex: 1 }}>
-        <div
-          style={{
-            fontFamily: "'Oswald', sans-serif",
-            fontSize: 28,
-            fontWeight: 700,
-            color: "#0D0D0D",
-            letterSpacing: 1,
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
-          Наши услуги
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {[
-            { label: "Погрузка / разгрузка", price: "от 500 ₽" },
-            { label: "Грузоперевозки на Ларгусе", price: "от 600 ₽" },
-            { label: "Разнорабочие", price: "по договору" },
-            { label: "Вывоз мусора", price: "по договору" },
-          ].map((s) => (
-            <div
-              key={s.label}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                gap: 12,
-                borderBottom: "1px solid rgba(0,0,0,0.15)",
-                paddingBottom: 10,
-              }}
-            >
-              <span style={{ color: "#0D0D0D", fontSize: 16, fontWeight: 500 }}>{s.label}</span>
-              <span style={{ color: "rgba(0,0,0,0.6)", fontSize: 14, whiteSpace: "nowrap" }}>{s.price}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    {/* Заголовок */}
+    <div
+      style={{
+        fontFamily: "'Oswald', sans-serif",
+        fontSize: 26,
+        fontWeight: 700,
+        color: "#0D0D0D",
+        letterSpacing: 1,
+        textTransform: "uppercase",
+        marginBottom: 28,
+      }}
+    >
+      Наши услуги
+    </div>
 
-      {/* QR code block */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 10,
-          flexShrink: 0,
-        }}
-      >
+    {/* Услуги */}
+    <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
+      {[
+        { label: "Разгрузка / погрузка", desc: "Профессиональные грузчики, быстро и аккуратно" },
+        { label: "Малогабаритные грузоперевозки на Ларгусе", desc: "Квартирные переезды, доставка мебели и вещей" },
+      ].map((s) => (
         <div
+          key={s.label}
           style={{
-            background: "#fff",
-            borderRadius: 16,
-            padding: 12,
-            boxShadow: "0 4px 24px rgba(0,0,0,0.15)",
+            background: "rgba(0,0,0,0.08)",
+            borderRadius: 14,
+            padding: "16px 20px",
           }}
         >
-          <QRCodeSVG
-            value={SITE_URL}
-            size={160}
-            bgColor="#ffffff"
-            fgColor="#0D0D0D"
-            level="M"
-          />
+          <div style={{ color: "#0D0D0D", fontSize: 18, fontWeight: 700 }}>{s.label}</div>
+          <div style={{ color: "rgba(0,0,0,0.55)", fontSize: 14, marginTop: 4 }}>{s.desc}</div>
         </div>
-        <div style={{ color: "#0D0D0D", fontSize: 13, fontWeight: 600, opacity: 0.7, textAlign: "center" }}>
-          Наш сайт
-        </div>
-      </div>
+      ))}
     </div>
 
     {/* Bottom */}
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 24 }}>
       <div
         style={{
           fontFamily: "'Oswald', sans-serif",
-          fontSize: 32,
+          fontSize: 28,
           fontWeight: 700,
           color: "#0D0D0D",
           opacity: 0.15,
@@ -203,24 +158,14 @@ const BackSide = () => (
       >
         ПОМОЩНИК
       </div>
-      <div style={{ color: "#0D0D0D", fontSize: 17, fontWeight: 600, opacity: 0.8 }}>
-        +7 (963) 44-55-826
+      <div style={{ color: "#0D0D0D", fontSize: 20, fontWeight: 700 }}>
+        {PHONE}
       </div>
     </div>
 
     {/* Decorative */}
-    <div
-      style={{
-        position: "absolute",
-        left: -60,
-        bottom: -60,
-        width: 260,
-        height: 260,
-        borderRadius: "50%",
-        background: "rgba(0,0,0,0.07)",
-        pointerEvents: "none",
-      }}
-    />
+    <div style={{ position: "absolute", left: -60, bottom: -60, width: 260, height: 260, borderRadius: "50%", background: "rgba(0,0,0,0.07)", pointerEvents: "none" }} />
+    <div style={{ position: "absolute", right: -40, top: -40, width: 180, height: 180, borderRadius: "50%", background: "rgba(0,0,0,0.05)", pointerEvents: "none" }} />
   </div>
 );
 
@@ -313,7 +258,7 @@ const BusinessCard = () => {
         {side === "front" ? <FrontSide /> : <BackSide />}
       </div>
 
-      {/* Both sides preview */}
+      {/* Both sides preview thumbnails */}
       <div className="no-print" style={{ display: "flex", gap: 24, flexWrap: "wrap", justifyContent: "center", marginTop: 16 }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 13, marginBottom: 8 }}>Лицевая</div>
