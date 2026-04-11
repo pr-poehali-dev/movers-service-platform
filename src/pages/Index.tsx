@@ -398,7 +398,7 @@ export default function Index() {
               {[
                 { icon: "Phone", label: "Телефон", value: "+7 (963) 44-55-826", href: "tel:+79634455826" },
                 { icon: "MapPin", label: "Работаем", value: "По всему городу", href: null },
-                { icon: "Clock", label: "Режим работы", value: "Ежедневно 7:00 — 23:00", href: null },
+                { icon: "Clock", label: "Режим работы", value: "Ежедневно 9:00 — 21:00", href: null },
               ].map(({ icon, label, value, href }) => (
                 <div key={label} className="bg-[#161616] border border-white/5 rounded-sm p-6 flex items-center gap-4">
                   <div className="w-12 h-12 bg-[#FF6B00]/10 rounded-sm flex items-center justify-center flex-shrink-0">

@@ -96,7 +96,7 @@ const FrontSide = () => (
           Режим работы
         </div>
         <div style={{ color: "#fff", fontSize: 22, fontWeight: 500 }}>
-          Ежедневно 7:00 — 23:00
+          Ежедневно 9:00 — 21:00
         </div>
       </div>
     </div>
