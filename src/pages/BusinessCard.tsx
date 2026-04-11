@@ -123,7 +123,7 @@ const BackSide = () => (
     <div
       style={{
         fontFamily: "'Oswald', sans-serif",
-        fontSize: 26,
+        fontSize: 32,
         fontWeight: 700,
         color: "#0D0D0D",
         letterSpacing: 1,
@@ -145,11 +145,11 @@ const BackSide = () => (
           style={{
             background: "rgba(0,0,0,0.08)",
             borderRadius: 14,
-            padding: "16px 20px",
+            padding: "18px 24px",
           }}
         >
-          <div style={{ color: "#0D0D0D", fontSize: 18, fontWeight: 700 }}>{s.label}</div>
-          <div style={{ color: "rgba(0,0,0,0.55)", fontSize: 14, marginTop: 4 }}>{s.desc}</div>
+          <div style={{ color: "#0D0D0D", fontSize: 22, fontWeight: 700 }}>{s.label}</div>
+          <div style={{ color: "rgba(0,0,0,0.55)", fontSize: 17, marginTop: 5 }}>{s.desc}</div>
         </div>
       ))}
     </div>
