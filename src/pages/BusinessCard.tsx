@@ -81,13 +81,23 @@ const FrontSide = () => (
       </div>
     </div>
 
-    {/* Bottom: телефон */}
-    <div style={{ paddingLeft: 8 }}>
-      <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
-        Телефон
+    {/* Bottom: телефон + режим работы */}
+    <div style={{ paddingLeft: 8, display: "flex", gap: 56, alignItems: "flex-end" }}>
+      <div>
+        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
+          Телефон
+        </div>
+        <div style={{ color: "#fff", fontSize: 32, fontWeight: 700, letterSpacing: 1 }}>
+          {PHONE}
+        </div>
       </div>
-      <div style={{ color: "#fff", fontSize: 32, fontWeight: 700, letterSpacing: 1 }}>
-        {PHONE}
+      <div>
+        <div style={{ color: "#FF6B00", fontSize: 13, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>
+          Режим работы
+        </div>
+        <div style={{ color: "#fff", fontSize: 20, fontWeight: 500 }}>
+          Ежедневно 7:00 — 23:00
+        </div>
       </div>
     </div>
 
